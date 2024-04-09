@@ -284,7 +284,7 @@ func (e *ETCD) Snapshot(ctx context.Context) error {
 		return err
 	}
 
-	if err := snapshot.NewV3(lg).Save(ctx, *cfg, snapshotPath); err != nil {
+	if _, err := snapshot.NewV3(lg).Save(ctx, *cfg, snapshotPath); err != nil {
 		sf = &snapshotFile{
 			Name:     snapshotName,
 			Location: "",
